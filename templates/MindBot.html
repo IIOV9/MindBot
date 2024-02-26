@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>MindBot</title>
+    <link rel="icon" href="/static/HOME icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-bar w3-white" style="letter-spacing:4px;">
+      <a href="/" class="w3-hover-Lights w3-bar-item">
+       <img src="/static/HOME icon.png"  alt="Logo" style="height: 40px;"> <!-- Adjust the height as needed -->
+     </a>
+      <!-- Right-sided navbar links -->
+      <div class="w3-right w3-hide-small">
+        <a href="#aboutus" class="w3-hover-pale-yellow w3-bar-item w3-button" id="ABOUT">ABOUT</a>
+        <a href="#team" class="w3-hover-pale-blue w3-bar-item w3-button"id="TEAM"><i class="fa fa-user"></i> TEAM</a>
+        <div class="w3-hover-pale-yellow w3-middle w3-dropdown-hover w3-hide-small">
+           <button class="w3-bar-item w3-button"id="OURSERVICES" > OUR SERVICES <i class="fa fa-caret-down"></i></button>
+           <div class="w3-dropdown-content w3-bar-block w3-card-4">
+             <a href="C:\Users\الحمد لله\OneDrive\سطح المكتب\grad.project\scientific Articale.html"target="_blank"class="w3-hover-pale-yellow w3-bar-item w3-button"id="SpecialistCare">specialist care</a>
+             <a href="/MindBot"target="_blank"class="w3-hover-pale-yellow w3-bar-item w3-button"id="MindBOT">MindBot</a>
+             <a href="C:\Users\الحمد لله\OneDrive\سطح المكتب\grad.project\community.html"target="_blank" class="w3-hover-pale-yellow w3-bar-item w3-button"id="community">community</a>
+           </div>
+        </div>
+      <a href="#contact" class="w3-hover-pale-yellow w3-bar-item w3-button"id="contact"><i class="fa fa-envelope"></i> CONTACT</a>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+<div class="container w3-padding">
+    <div class="chat-header">
+        <div class="welcome-message ">Welcome to MindBot</div>
+    </div>
+    <div class="instruction">الرجاء الإجابة على جميع الأسئلة للحصول على التحليل المطلوب</div>
+    <div class="chat-container">
+         <button class="w3-button w3-teal w3-margin clear-chat-btn" onclick="clearChat()"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+
+        {% for chat in chat_history %}
+            <div class="chat-message {{ 'question' if chat.type == 'question' else 'answer' }}">
+                {{ chat.text }}
+            </div>
+        {% endfor %}
+        {% if show_input %}
+            {% if error_message %}
+                <div class="alert alert-danger">{{ error_message }}</div>
+            {% endif %}
+            <form method="post">
+                <input type="text" class="form-control" name="answer" placeholder="اكتب إجابتك هنا..." autofocus>
+                <button type="submit" class="btn btn-primary">إرسال</button>
+            </form>
+        {% else %}
+            <div class="alert alert-success text-center">شكرا لك!</div>
+            <div class="alert alert-info">
+                <strong>عدد الإجابات بـ "نعم":</strong> {{ yes_count }}<br>
+                <strong>عدد الإجابات بـ "لا":</strong> {{ no_count }}<br>
+                <strong>التوصية:</strong> {{ diagnosis }}
+            </div>
+        {% endif %}
+    </div>
+</div>
+<script>
+    function clearChat() {
+        // Clear the chat history displayed in the chat-container
+        var chatMessages = document.querySelectorAll('.question, .answer');
+        chatMessages.forEach(function(message) {
+            message.remove();
+        });
+
+        // Reset the chat history array
+        chat_history = [];
+
+        // Reset the current question index
+        current_question_index = 0;
+    }
+</script>
+</body>
+</html>
