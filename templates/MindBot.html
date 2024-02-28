@@ -3,34 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>MindBot</title>
-    <link rel="icon" href="/static/HOME icon.png" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='HOME icon.png') }}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/style.css">\
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, span, button, input {
+          font-family: 'Cairo', sans-serif;
+        }
+      </style>
 </head>
 <body>
 
   <!-- Navbar (sit on top) -->
   <div class="w3-top">
-    <div class="w3-bar w3-white" style="letter-spacing:4px;">
+    <div class="w3-bar w3-white">
       <a href="/" class="w3-hover-Lights w3-bar-item">
        <img src="/static/HOME icon.png"  alt="Logo" style="height: 40px;"> <!-- Adjust the height as needed -->
      </a>
       <!-- Right-sided navbar links -->
-      <div class="w3-right w3-hide-small">
-        <a href="#aboutus" class="w3-hover-pale-yellow w3-bar-item w3-button" id="ABOUT">ABOUT</a>
-        <a href="#team" class="w3-hover-pale-blue w3-bar-item w3-button"id="TEAM"><i class="fa fa-user"></i> TEAM</a>
-        <div class="w3-hover-pale-yellow w3-middle w3-dropdown-hover w3-hide-small">
-           <button class="w3-bar-item w3-button"id="OURSERVICES" > OUR SERVICES <i class="fa fa-caret-down"></i></button>
-           <div class="w3-dropdown-content w3-bar-block w3-card-4">
-             <a href="C:\Users\الحمد لله\OneDrive\سطح المكتب\grad.project\scientific Articale.html"target="_blank"class="w3-hover-pale-yellow w3-bar-item w3-button"id="SpecialistCare">specialist care</a>
-             <a href="/MindBot"target="_blank"class="w3-hover-pale-yellow w3-bar-item w3-button"id="MindBOT">MindBot</a>
-             <a href="C:\Users\الحمد لله\OneDrive\سطح المكتب\grad.project\community.html"target="_blank" class="w3-hover-pale-yellow w3-bar-item w3-button"id="community">community</a>
-           </div>
-        </div>
-      <a href="#contact" class="w3-hover-pale-yellow w3-bar-item w3-button"id="contact"><i class="fa fa-envelope"></i> CONTACT</a>
+      <div class="w3-serif w3-right w3-hide-small">
+        <a href="/community" class=" w3-hover-pale-blue w3-bar-item w3-button" id="community">المجتمع</a>
+        <a href="/MindBot" class="w3-hover-pale-blue w3-bar-item w3-button"id="MindBot"> MindBot</a>
+        <a href="/specialist" class="w3-hover-pale-blue w3-tex w3-bar-item w3-button"id="specialist">عناية المختصين </a>
+
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
@@ -44,7 +43,7 @@
     </div>
     <div class="instruction">الرجاء الإجابة على جميع الأسئلة للحصول على التحليل المطلوب</div>
     <div class="chat-container">
-         <button class="w3-button w3-teal w3-margin clear-chat-btn" onclick="clearChat()"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+        <button class="w3-button w3-teal w3-margin clear-chat-btn" onclick="clearChat()"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
 
         {% for chat in chat_history %}
             <div class="chat-message {{ 'question' if chat.type == 'question' else 'answer' }}">
@@ -55,7 +54,7 @@
             {% if error_message %}
                 <div class="alert alert-danger">{{ error_message }}</div>
             {% endif %}
-            <form method="post">
+            <form method="post" action="{{ url_for('MindBot.MindBot') }}">
                 <input type="text" class="form-control" name="answer" placeholder="اكتب إجابتك هنا..." autofocus>
                 <button type="submit" class="btn btn-primary">إرسال</button>
             </form>
@@ -69,6 +68,7 @@
         {% endif %}
     </div>
 </div>
+
 <script>
     function clearChat() {
         // Clear the chat history displayed in the chat-container
@@ -84,5 +84,3 @@
         current_question_index = 0;
     }
 </script>
-</body>
-</html>
