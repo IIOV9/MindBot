@@ -1,48 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
 <title> Autistic Mindset</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="icon" href="{{ url_for('static', filename='HOME icon.png') }}" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script src="/server.js"></script>
 <link rel="stylesheet" href="/static/style.css">
-
-
-
-
 <style>
-
+  body, h1, h2, h3, h4, h5, h6, p, span, button, input {
+    font-family: 'Cairo', sans-serif;
+  }
 </style>
+
+
 </head>
 <body>
   <!-- Navbar (sit on top) -->
   <div class="w3-top">
 
-    <div class="w3-bar w3-white w3-hide-small" style="letter-spacing:4px;">
+    <div class="w3-bar w3-white w3-hide-small">
       <a href="#home" class="w3-hover-Lights w3-bar-item">
        <img src="{{ url_for('static', filename='HOME icon.png') }}" alt="Logo" style="height: 40px;"> <!-- Adjust the height as needed -->
      </a>
       <!-- Right-sided navbar links -->
       <div class="w3-right w3-hide-small">
-        <a href="#aboutus" class="w3-hover-pale-yellow w3-bar-item w3-button" id="ABOUT">ABOUT</a>
-        <a href="#team" class="w3-hover-pale-yellow w3-bar-item w3-button"id="TEAM"><i class="fa fa-user"></i> TEAM</a>
+        <a href="#aboutus" class="w3-hover-pale-yellow w3-bar-item w3-button w3-hide-small" id="ABOUT">عننا</a>
+        <a href="#team" class="w3-hover-pale-yellow w3-bar-item w3-button w3-hide-small"id="TEAM"><i class="fa fa-user"></i> الفريق</a>
         <div class="w3-hover-pale-yellow w3-middle w3-dropdown-hover w3-hide-small">
-           <button class="w3-bar-item w3-button"id="OURSERVICES" > OUR SERVICES <i class="fa fa-caret-down"></i></button>
+           <button class="w3-bar-item w3-button"id="OURSERVICES" > خدماتنا <i class="fa fa-caret-down"></i></button>
            <div class="w3-dropdown-content w3-bar-block w3-card-4">
-             <a href="C:\Users\الحمد لله\Downloads\G.project\spicialist.html"target="_blank"class="w3-hover-pale-yellow w3-bar-item w3-button"id="SpecialistCare">specialist care</a>
-             <a href="/MindBot" target="_blank"class="w3-hover-pale-yellow w3-bar-item w3-button"id="MindBOT">MindBot</a>
-             <a href="C:\Users\الحمد لله\Downloads\G.project\community.html"target="_blank" class="w3-hover-pale-yellow w3-bar-item w3-button"id="community">community</a>
+             <a href="/specialist"target="_blank"class="w3-hide-small w3-hover-pale-yellow w3-bar-item w3-button"id="specialist">عناية المختصين</a>
+             <a href="/MindBot" target="_blank"class="w3-hide-small w3-hover-pale-yellow w3-bar-item w3-button"id="MindBot">MindBot</a>
+             <a href="/community" target="_blank" class="w3-hide-small w3-hover-pale-yellow w3-bar-item w3-button"id="community">المجتمع</a>
            </div>
 
         </div>
 
-      <a href="#contact" class="w3-hover-pale-yellow w3-bar-item w3-button" id="CONTACT"><i class="fa fa-envelope"></i> CONTACT</a>
+      <a href="#contact" class="w3-hide-small w3-hover-pale-yellow w3-bar-item w3-button" id="CONTACT"><i class="fa fa-envelope"></i> تواصل</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -58,11 +59,10 @@
 <header class=" w3-wide" style="max-width:1600px;min-width:500px" id="home">
 
   <img src="{{ url_for('static', filename='HOME PAGE.jpg') }}"alt="home" width="1600" height="800">
-      <div class="w3-cursive w3-display-left w3-text-white" style="padding:48px">
-        <span class="w3-jumbo w3-hide-small"id="siteTitle">Autistic Mindset</span><br>
-        <span class="w3-large"id="SiteTheem">Autism Is Not A Disability.</span>
-        <p><a href="#aboutus" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off"id="LearnMore">Learn more</a></p>
-        <button class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off" onclick="toggleLanguage()">Ar/En</button>
+      <div class=" w3-display-left w3-text-white" style="padding:48px">
+        <span class="w3-jumbo w3-hide-small"id="siteTitle">عقلية التوحد </span><br>
+        <span class="w3-large"id="SiteTheem">التوحد ليس إعاقة</span>
+        <p><a href="#aboutus" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off"id="LearnMore">المزيد</a></p>
       </div>
    </div>
 </header>
@@ -73,113 +73,112 @@
 
 <!-- About Section -->
 <div class="w3-container" style="padding:128px 16px" id="aboutus">
-  <h3 class="w3-center"id="aboutus">ABOUT US</h3>
-  <p class="w3-center w3-large" id="keyfeatures">Key features</p>
+  <h3 class="w3-center"id="aboutus"> عننا </h3>
+  <p class="w3-center w3-large" id="keyfeatures">المميزات</p>
   <div class="w3-row-padding w3-center w3-middle" style="margin-top:64px">
     <div class="w3-quarter">
       <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-text-light-blue w3-large"id="Passion">Passion</p>
-      <p>The desire to provide all possible assistance to all mothers who face difficulty in raising a child on the ASD. .</p>
+      <p class="w3-text-light-blue w3-large"id="Passion">الشغف</p>
+      <p>.الرغبة في تقديم كل الدعم الممكن لجميع الأمهات اللاتي يواجهن صعوبة في تربية طفل طيف التوحد</p>
     </div>
 
     <div class="w3-quarter w3-middle">
       <i class="fa fa-cog  w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-text-light-blue w3-large"id="Support">Support</p>
-      <p>The desire to support ourselves as a team in developing our programming and technology capabilities to be of high value in society.</p>
+      <p class="w3-text-light-blue w3-large"id="Support">الدعم</p>
+      <p>.الرغبة في دعم أنفسنا كفريق في تطوير قدراتنا في البرمجة والتكنولوجيا لنكون ذوي قيمة عالية في المجتمع</p>
     </div>
   </div>
 </div>
 
 <!-- Team Section -->
 <div class="w3-container" style="padding:128px 16px" id="team">
-  <h3 class="w3-center">THE TEAM</h3>
-  <p class="w3-center w3-large">The ones who runs this company</p>
+  <h3 class="w3-center">الفريق</h3>
   <div class="w3-row-padding" style="margin-top:64px">
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-card">
-        <img src="static\lama.jpg" alt="LAMA" style="width:100%">
+        <img src="{{ url_for('static', filename='lama.jpg') }}" alt="LAMA" style="width:100%">
         <div class="w3-container">
-          <h3>Lama Rashed</h3>
-          <p class="w3-opacity">Team Leader & Web Designer & programmer</p>
-          <p>A valuable member of our team and leader, she supervised all stages and paid special attention to the design of our website beside MindBot programming.</p>
-          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+          <h3>لمى راشد</h3>
+          <p class="w3-opacity">قائدة الفريق & Web Designer & programmer</p>
+          <p>عضوه قيمه في فريقنا وقائده، المسؤوله عن الجانب البرمجي , قامت بالإشراف على جميع المراحل وأولت اهتمامًا .خاصًا لتصميم موقعنا </p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> تواصل</button></p>
         </div>
       </div>
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-card">
-        <img src="static\Nada.jpg" alt="NADA" style="width:100%">
+        <img src="{{ url_for('static', filename='Nada.jpg') }}" alt="NADA" style="width:100%">
         <div class="w3-container">
-          <h3>Nada Mohammed</h3>
+          <h3>ندى محمد</h3>
           <p class="w3-opacity">web devloper & programmer</p>
-          <p>A valuable member of our team supervised the programming phase related to artificial intelligence and provided assistance in achieving the goals of this project.</p>
+          <p>عضوه قيمه في فريقنا قامت بالإشراف على مرحلة البرمجة المتعلقة بالذكاء الاصطناعي وقدمت الدعم اللازم لتحقيق أهداف هذا المشروع.</p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> تواصل </button></p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="{{ url_for('static', filename='shahad.jpg') }}" alt="SHAHAD" style="width:100%">
+        <div class="w3-container">
+          <h3>شهد أحمد</h3>
+          <p class="w3-opacity">data analyst</p>
+          <p>عضوه قيمه في فريقنا قامت بالإشراف على مرحلة جمع البيانات والمعلومات التي تساعد في تصميم وتطوير المشروع.</p>
           <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
         </div>
       </div>
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-card">
-        <img src="static\shahad.jpg" alt="SHAHAD" style="width:100%">
+        <img src="{{ url_for('static', filename='maryam.jpg') }}" alt="MARYAM" style="width:100%">
         <div class="w3-container">
-          <h3>Shahad Ahmed</h3>
-          <p class="w3-opacity">data analyst</p>
-          <p>A valuable member of our team supervised the data and information collection phase that helps in designing and developing the project.</p>
-          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
-        </div>
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="static\maryam.jpg" alt="MARYAM" style="width:100%">
-        <div class="w3-container">
-          <h3>maryam Abduallah</h3>
-          <p class="w3-opacity">data analyst</p>
-          <p>A valuable member of our team provided important studies and turn them into useful information.</p>
-          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+          <h3>مريم عبدالله</h3>
+          <p class="w3-opacity">data analyst & web Designer</p>
+          <p> عضوه قيمه في فريقنا قامت بتقديم دراسات مهمة وتحويلها إلى معلومات مفيدة, بجانب التصميم الأبداعي في موقعنا.</p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> تواصل </button></p>
         </div>
       </div>
     </div>
   </div>
   <div class="w3-col l3 m6 w3-middle w3-margin-bottom">
     <div class="w3-card">
-      <img src="static\fatimah M.jpg" alt="FATIMAH M" style="width:100%">
+      <img src="{{ url_for('static', filename='fatimah M.jpg') }}" alt="FATIMAH M" style="width:100%">
       <div class="w3-container">
-        <h3>Fatimah Mohammed</h3>
+        <h3>فاطمة محمد </h3>
         <p class="w3-opacity">QA analysts</p>
-        <p>A valuable member of our team made sure to fix any issues found during.</p>
-        <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+        <p>عضوه قيمه في فريقنا كانت ملتزمه بضمان إصلاح أي مشاكل تم العثور عليها في وثائق المشروع.</p>
+        <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> تواصل</button></p>
       </div>
     </div>
   </div>
   <div class="w3-col l3 m6 w3-middle w3-margin-bottom">
     <div class="w3-card">
-      <img src="static\fatimah H.jpg" alt="FATIMAH H" style="width:100%">
+      <img src="{{ url_for('static', filename='fatimah h.jpg') }}" alt="FATIMAH H" style="width:100%">
       <div class="w3-container">
-        <h3>Fatimah Hassan</h3>
+        <h3>فاطمه حسن </h3>
         <p class="w3-opacity">Documentarian</p>
-        <p>A valuable member of our team made sure that project information is well-documented, organized, and accessible to relevant stakeholders..</p>
-        <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+        <p>عضوه قيمه في فريقنا كانت تضمن أن تكون معلومات المشروع موثقة بشكل جيد، منظمة، ومتاحة للأطراف المعنية.</p>
+        <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> تواصل </button></p>
       </div>
     </div>
   </div>
 </div>
 <!-- Contact Section -->
 <div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
-  <h3 class="w3-center">CONTACT</h3>
-  <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
+  <h3 class="w3-center">تواصل </h3>
+  <p class="w3-center w3-large">لنبقى على تواصل , أرسل رسالة:</p>
   <div style="margin-top:48px">
-    <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Asir, SAUDI ARABIA</p>
-    <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +966 501319279</p>
-    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: autisticmaindset@gmail.com</p>
+    <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> عسير,  المملكة العربية السعودية </p>
+    <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> جوال: +966 501319279</p>
+    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> البريد : autisticmaindset2024@gmail.com</p>
     <br>
-    <form method="post" action="/">
-      <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
+    <form onsubmit="submitForm(); return false;">
+          <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
       <p>
         <button class="w3-button w3-black" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+          <i class="fa fa-paper-plane"></i> ارسل 
         </button>
       </p>
     </form>
@@ -188,7 +187,7 @@
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-64">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>للأعلى</a>
   <div class="w3-xlarge w3-section">
 
     <i class="fa fa-twitter w3-hover-opacity"></i>
@@ -197,72 +196,35 @@
 <p>© Copyright, the Autistic Mindset group </p>
 </footer>
 <script>
-  new Vue({
-    el: '#app',
-    data: {
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    },
-    methods: {
-      submitForm() {
-        // You can handle form submission here
-        console.log('Form submitted');
-        console.log('Name:', this.name);
-        console.log('Email:', this.email);
-        console.log('Subject:', this.subject);
-        console.log('Message:', this.message);
+  function submitForm() {
+    var name = document.getElementById('Name').value;
+    var email = document.getElementById('Email').value;
+    var subject = document.getElementById('Subject').value;
+    var message = document.getElementById('Message').value;
+
+    var formData = { name: name, email: email, subject: subject, message: message };
+
+    fetch('/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to send email');
       }
-    }
-  });
-  </script>
-  
-<script>
-    // Initial language setting
-    var currentLanguage = 'en';
-
-    // Function to toggle between English and Arabic
-    function toggleLanguage() {
-      // Toggle the language
-      currentLanguage = currentLanguage === 'en' ? 'ar' : 'en';
-
-      // Update content based on the selected language
-      if (currentLanguage === 'ar') {
-        // Arabic content
-        $('#siteTitle').text('عقلية التوحد');
-        $('#SiteTheem').text('التوحد ليس إعاقة.');
-        $('#aboutus').text('من نحن');
-        $('#keyfeatures').text('مميزات');
-        $('#Passion').text('الشغف');
-        $('#Support').text('الدعم');
-        $('#ABOUT').text('عننا');
-        $('#TEAM').text('الفريق');
-        $('#OURSERVICES').text('خدماتنا');
-        $('#SpecialistCare').text('عناية المختصين');
-        $('#community').text('المجتمع');
-        $('#contact').text('تواصل');
-        $('#LearnMore').text('اعرف أكثر');
-
-        // ... Update other elements ...
-      } else {
-        // English content
-        $('#siteTitle').text('Autistic Mindset');
-        $('#SiteTheem').text('Autism Is Not A Disability.');
-        $('#aboutus').text('ABOUT US');
-        $('#keyfeatures').text('Key feauters');
-        $('#Passion').text('Passion');
-        $('#Support').text('Support');
-        $('#ABOUT').text('ABOUT');
-        $('#TEAM').text('TEAM');
-        $('#OURSERVICES').text('OUR SERVICES');
-        $('#SpecialistCare').text('specialist care');
-        $('#community').text('community');
-        $('#contact').text('CONTACT');
-        $('#LearnMore').text('Learn more');
-      }
-    }
+      console.log('Email sent successfully');
+      // Handle success, e.g., show a success message to the user
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Handle error, e.g., show an error message to the user
+    });
+  }
 </script>
+
 
 </body>
 </html>
